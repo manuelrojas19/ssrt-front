@@ -1,0 +1,60 @@
+<div class="card shadow">
+    <div class="card-header card-header-main text-center">
+      <h2 class="h4">Información del reporte</h2>
+    </div>
+    <div class="card-body">
+      <ol class="list-group list-group-flush">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Tipo de reporte</div>
+            Mensual
+          </div>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Periodo escolar</div>
+            2022-2023
+          </div>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Fecha de Inicio del reporte</div>
+            {{ report?.from | date: "dd-MMM-yyyy":"es" }}
+          </div>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Fecha de término del reporte</div>
+            {{ report?.to | date: "dd-MMM-yyyy":"es" }}
+          </div>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Total de horas registradas</div>
+            <p>
+              {{ report?.totalHours }} horas
+            </p>
+          </div>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Estado del reporte</div>
+            Por validar
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+  

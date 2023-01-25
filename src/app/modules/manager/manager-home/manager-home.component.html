@@ -1,0 +1,9 @@
+<h1 class="h1">
+  Jefe de Área
+  <small class="text-muted display-5"
+    >Departamento de {{ manager?.department.name }}</small
+  >
+</h1>
+<div class="mt-3 content-container" *ngIf="manager">
+  <p class="lead">Bienvenido al sistema de comisiones {{ manager.name }}</p>
+</div>

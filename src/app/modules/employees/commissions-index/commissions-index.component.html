@@ -1,0 +1,29 @@
+<h1 class="h1">Reportes mensuales</h1>
+<div class="mt-3" *ngIf="reports">
+  <div class="table-data-container mt-4">
+    <app-commission-data-table
+      [commissions]="commissions"
+      [reports]="reports"
+      [pagination]="pagination"
+      (selectIndexEvent)="onChangeItem($event)"
+      ><button
+        type="button"
+        class="btn btn-outline-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#reqCommissionModal"
+      >
+        <i class="fa fa-plus"></i> Agregar reporte
+      </button>
+    </app-commission-data-table>
+  </div>
+</div>
+<app-modal
+  [events]="eventSuccesfullyCreated.asObservable()"
+  idModal="reqCommissionModal"
+>
+  <h5 modalTitle>Agregar reporte mensual</h5>
+  <app-commission-form
+    [error]="onCreateError"
+    (commissionSubmit)="onCreateCommission($event)"
+  ></app-commission-form>
+</app-modal>

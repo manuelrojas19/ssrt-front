@@ -1,0 +1,40 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="authForm" class="form row g-3">
+  <div class="col-md-12">
+    <div *ngIf="error?.status === 409" class="alert alert-danger" role="alert">
+      Las fechas seleccionadas estan en conflicto con las fechas de otra
+      comisión.
+    </div>
+    <div *ngIf="error?.status === 422" class="alert alert-danger" role="alert">
+      Fechas seleccionadas para la comisión invalidas.
+    </div>
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="from" class="form-label">Fecha de Inicio</label>
+    <input
+      formControlName="from"
+      [ngClass]="
+        formHasErrors && controls.from.errors?.required ? 'is-invalid' : ''
+      "
+      class="form-control"
+      type="date"
+      id="from"
+    />
+    <div class="invalid-feedback">Por favor ingrese la fecha de inicio.</div>
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="to" class="form-label">Fecha de termino</label>
+    <input
+      formControlName="to"
+      [ngClass]="
+        formHasErrors && controls.to.errors?.required ? 'is-invalid' : ''
+      "
+      class="form-control"
+      type="date"
+      id="to"
+    />
+    <div class="invalid-feedback">Por favor ingrese la fecha de termino.</div>
+  </div>
+  <div class="col-12 mb-2 mt-4">
+    <button type="submit" class="btn btn-outline-primary">Agregar reporte</button>
+  </div>
+</form>

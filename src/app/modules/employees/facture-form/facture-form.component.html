@@ -1,0 +1,105 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="authForm" class="form row g-3">
+  <div
+    *ngIf="authForm.errors?.invalidFile"
+    class="alert alert-danger"
+    role="alert"
+  >
+    A ocurrido un error, formato de archivo invalido, el archivo enviado debe
+    ser de extensión .xml
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="date" class="form-label">Fecha</label>
+    <input
+      formControlName="date"
+      [ngClass]="
+        formHasErrors && controls.date.errors?.required ? 'is-invalid' : ''
+      "
+      class="form-control"
+      type="date"
+      id="date"
+    />
+
+    <div class="invalid-feedback">
+      Por favor ingrese la fecha del reporte.
+    </div>
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="workedHours" class="form-label">Horas trabajadas</label>
+    <input
+      formControlName="workedHours"
+      [ngClass]="
+        formHasErrors && controls.workedHours.errors?.required ? 'is-invalid' : ''
+      "
+      class="form-control"
+      type="number"
+      id="workedHours"
+    />
+
+    <div class="invalid-feedback">
+      Por favor ingrese las horas trabajadas
+    </div>
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="entryTime" class="form-label">Hora de entrada</label>
+    <div class="input-group has-validation">
+      <input
+        formControlName="entryTime"
+        [ngClass]="
+          formHasErrors &&
+          (controls.entryTime.errors?.required ||
+            controls.entryTime.errors?.rangeError)
+            ? 'is-invalid'
+            : ''
+        "
+        class="form-control"
+        type="time"
+        id="entryTime"
+      />
+      <div
+        *ngIf="controls.entryTime.errors?.required ? 'is-invalid' : ''"
+        class="invalid-feedback"
+      >
+        Por favor ingrese el monto de la factura.
+      </div>
+      <div
+        *ngIf="controls.entryTime.errors?.rangeError ? 'is-invalid' : ''"
+        class="invalid-feedback"
+      >
+        Por favor ingrese un monto valido.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="exitTime" class="form-label">Hora de salida</label>
+    <div class="input-group has-validation">
+      <input
+        formControlName="exitTime"
+        [ngClass]="
+          formHasErrors &&
+          (controls.exitTime.errors?.required ||
+            controls.exitTime.errors?.rangeError)
+            ? 'is-invalid'
+            : ''
+        "
+        class="form-control"
+        type="time"
+        id="exitTime"
+      />
+      <div
+        *ngIf="controls.exitTime.errors?.required ? 'is-invalid' : ''"
+        class="invalid-feedback"
+      >
+        Por favor ingrese el monto de la factura.
+      </div>
+      <div
+        *ngIf="controls.exitTime.errors?.rangeError ? 'is-invalid' : ''"
+        class="invalid-feedback"
+      >
+        Por favor ingrese un monto valido.
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mb-2 mt-4">
+    <button type="submit" class="btn btn-outline-primary">Agregar</button>
+  </div>
+</form>

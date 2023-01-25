@@ -1,0 +1,45 @@
+<h1>Detalles del reporte mensual</h1>
+<a routerLink=".." type="button" class="btn btn-outline-secondary mt-3 mb-4">
+  <i class="fa fa-angle-left"></i> Regresar
+</a>
+<div class="row mt-2">
+  <p class="text-muted" *ngIf="notFoundError">
+    No se encontro el recurso solicitado.
+  </p>
+  <div class="col-md-12 col-lg-5 mb-5 mb-lg-0">
+    <div>
+      <app-commission-details
+        [report]="report"
+        [commission]="commission"
+      ></app-commission-details>
+    </div>
+  </div>
+  <div class="col-md-12 col-lg-7">
+    <app-facture-data-table
+      [factures]="factures"
+      [timeEntries]="report.timeEntries"
+      [pagination]="facturesPagination"
+      [commissionApprovalStatus]="true"
+      (selectIndexEvent)="onChangeFacturePage($event)"
+      class="facturesTable"
+    >
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#reqFactureModal"
+      >
+        <i class="fa fa-plus"></i> Registrar horas
+      </button>
+    </app-facture-data-table>
+  </div>
+</div>
+<app-modal
+  [events]="eventSuccesfullyCreated.asObservable()"
+  idModal="reqFactureModal"
+>
+  <h5 modalTitle>Agregar factura</h5>
+  <app-facture-form
+    (factureSubmit)="onCreateFacture($event)"
+  ></app-facture-form>
+</app-modal>

@@ -1,0 +1,136 @@
+<h1 class="h1">Registro de usuario</h1>
+<h4 class="h4">Por favor, registra tu información</h4>
+<div class="mt-3 content-container">
+  <div class="card shadow">
+    <div class="card-header card-header-main text-center">
+      <h2 class="h4">Registro</h2>
+    </div>
+    <div class="card-body">
+      <form
+        (ngSubmit)="onSubmit()"
+        [formGroup]="authForm"
+        class="form needs-validation"
+        novalidate
+        class="row g-3"
+      >
+        <div class="col-md-6">
+          <label for="nombre" class="form-label">Nombre(s)</label>
+          <input
+            formControlName="name"
+            type="text"
+            class="form-control"
+            id="nombre"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="apellidos" class="form-label">Apellidos</label>
+          <input
+            formControlName="surname"
+            type="text"
+            class="form-control"
+            id="apellidos"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Programa académico</label>
+          <select
+            formControlName="academicProgram"
+            id="inputState"
+            class="form-select"
+          >
+            <option selected>Ingenería Industrial</option>
+            <option>Ingenería Informática</option>
+            <option>Licenciatura en Ciencias de la Informática</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label"
+            >Correo Institucional</label
+          >
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control"
+            id="inputEmail4"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">Número de Boleta</label>
+          <input formControlName="username" type="text" class="form-control" id="inputCity" />
+        </div>
+
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Semestre</label>
+          <select
+            formControlName="semester"
+            id="inputState"
+            class="form-select"
+          >
+            <option selected>Sexto</option>
+            <option>Séptimo</option>
+            <option>Octavo</option>
+            <option>Noveno</option>
+            <option>Décimo</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Contraseña</label>
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            id="inputPassword4"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label"
+            >Validar contraseña</label
+          >
+          <input type="password" class="form-control" id="inputPassword4" />
+        </div>
+        <div class="col-md-8">
+          <label for="inputCity" class="form-label"
+            >Empresa prestadora de Servicio Social</label
+          >
+          <input
+            formControlName="borrower"
+            type="text"
+            class="form-control"
+            id="inputCity"
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label"
+            >Tipo de Servicio Social</label
+          >
+          <select formControlName="program" id="inputState" class="form-select">
+            <option selected>A distancia</option>
+            <option>Prescencial</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">Encargado</label>
+          <input
+            formControlName="manager"
+            type="text"
+            class="form-control"
+            id="inputCity"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">Cargo</label>
+          <input
+            formControlName="managerCharge"
+            type="text"
+            class="form-control"
+            id="inputCity"
+          />
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Registrarse</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

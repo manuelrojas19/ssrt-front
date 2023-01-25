@@ -1,0 +1,58 @@
+<h1 class="display-5">Departamentos</h1>
+<div class="mt-5 row">
+  <div
+    *ngFor="let department of departments"
+    class="card me-4 mb-4"
+    style="width: 30rem"
+  >
+    <div class="card-body">
+      <dl class="row">
+        <h5 class="card-title text-center">
+          Departamento de {{ department.departmentDescription }}
+        </h5>
+        <dt class="col-sm-8 col-md-7 card-text">Presupuesto para viáticos:</dt>
+        <dd class="col-sm-4">
+          <small class="text-muted">
+            <strong>
+              ${{ department.budgetViatic | number: "1.2" }} MXN
+            </strong>
+          </small>
+        </dd>
+        <dt class="col-sm-8 col-md-7 card-text">
+          Presupuesto para transporte:
+        </dt>
+        <dd class="col-sm-4">
+          <small class="text-muted">
+            <strong>
+              ${{ department.budgetTransport | number: "1.2" }} MXN
+            </strong>
+          </small>
+        </dd>
+      </dl>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <a
+            href="/finances/{{ department.departmentDescription }}/commissions"
+            class="btn btn-sm btn-outline-red mb-2"
+            >Comisiones</a
+          >
+        </li>
+        <li class="list-inline-item">
+          <a
+            href="/finances/{{ department.departmentDescription }}/employees"
+            class="btn btn-sm btn-outline-red mb-2"
+            >Empleados</a
+          >
+        </li>
+      
+        <!-- <li class="list-inline-item">
+          <a
+            href="/finances/{{ department.departmentDescription }}/reports"
+            class="btn btn-sm btn-outline-red mb-2"
+            >Reportes</a
+          >
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</div>
